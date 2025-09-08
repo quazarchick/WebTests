@@ -18,9 +18,11 @@ def test_go_to_recovery_after_many_fails(browser):
     BasePage(browser).get_url(BASE_URL)
     LoginPage = LoginPageHelper(browser)
     LoginPage.send_login(LOGIN_TEXT)
+
     for i in range(3):
         LoginPage.send_password(PASSWORD_TEXT)
-    LoginPage.click_login()
+        LoginPage.click_login()
+
     LoginPage.click_recovery()
     RecoveryPage = RecoveryPageHelper(browser)
 

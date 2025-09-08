@@ -51,7 +51,7 @@ class LoginPageHelper(BasePage):
     @allure.step('Вводим данные в поле Пароль')
     def send_password(self, password):
         self.attach_screenshot()
-        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(password)
+        self.find_element(LoginPageLocators.PASSWORD_FIELD).send_keys(password)
 
     @allure.step('Получаем текст ошибки')
     def get_error_text(self):
