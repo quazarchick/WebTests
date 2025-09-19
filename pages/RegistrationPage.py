@@ -4,11 +4,11 @@ import random
 from pages.BasePage import BasePage
 
 class RegistrationPageLocators:
-    PHONE_FIELD = (By.XPATH, '//div[@data_l="t,phone"]')
-    COUNTRY_ITEM = (By.XPATH, '//*[@class="country-select_i"]')
-    COUNTRY_LIST = (By.XPATH, '//div[@data_l="t,country"]')
-    SUBMIT_BUTTON = (By.XPATH, '//input[@data_l="t,submit"]')
-    SUPPORT_BUTTON = (By.XPATH, '//*[@class="country-select_i"]')
+    PHONE_FIELD = (By.XPATH, '//div[@data-l="t,phone"]')
+    COUNTRY_ITEM = (By.XPATH, '//div[@class="country-select_code"]')
+    COUNTRY_LIST = (By.XPATH, '//div[@data-l="t,country"]')
+    SUBMIT_BUTTON = (By.XPATH, '//input[@data-l="t,submit"]')
+    SUPPORT_BUTTON = (By.XPATH, '//*[@data-l="t,support"]')
 
 class RegistrationPageHelper(BasePage):
     def __init__(self, driver):
@@ -22,10 +22,17 @@ class RegistrationPageHelper(BasePage):
             self.find_element(RegistrationPageLocators.SUBMIT_BUTTON)
             self.find_element(RegistrationPageLocators.SUPPORT_BUTTON)
 
+    @allure.step('Выбор случайной страны')
     def selectRandomCountry(self):
+        self.attach_screenshot()
         random_number = random.randint(0, 212)
         self.find_element(RegistrationPageLocators.COUNTRY_LIST).click()
         country_items = self.find_elements(RegistrationPageLocators.COUNTRY_ITEM)
+        country_code = country_items[random_number].get_attribute('text')
         country_items[random_number].click()
-        return country_items[random_number].text
+        return country_code
 
+    @allure.step('Получение телефонного кода страны')
+    def get_phone_field_value(self):
+        self.attach_screenshot()
+        return self.find_element(RegistrationPageLocators.PHONE_FIELD).get_attribute('value')
