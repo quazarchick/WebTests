@@ -11,8 +11,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 BASE_URL = 'https://ok.ru/help'
 
+@allure.suite("Проверка страницы помощи")
+@allure.title("Проверка перехода в рекламный кабинет со страницы Помощь")
 def test_help_test(browser):
     BasePage(browser).get_url(BASE_URL)
     HelpPage = HelpPageHelper(browser)
-    HelpPage.scrollToitem(HelpPageLocators.ADVERTISEMENT_CABINET)
+    HelpPage.scrollToItem(HelpPageLocators.ADVERTISEMENT_CABINET)
     AdvetisementCabinetHelpHelper(browser)
