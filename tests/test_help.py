@@ -1,7 +1,7 @@
 from core.BaseTest import browser
 from pages.BasePage import BasePageHelper
 from pages.HelpPage import HelpPageHelperHelper, HelpPageLocators
-from pages.LoginPage import LoginPageHelperHelper
+from pages.LoginPage import LoginPageHelper
 from pages.AdvetisementCabinetHelp import AdvetisementCabinetHelpHelper
 import allure
 import pytest

@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from pages.BasePage import BasePageHelper
 
 class VKEcosystemPageLocators:
-    pass
+    TITLE_LABEL = (By.XPATH, '//h1[@class="title-h2"]')
 
 class VKEcosystemPageHelper(BasePageHelper):
     def __init__(self, driver):
@@ -11,4 +11,4 @@ class VKEcosystemPageHelper(BasePageHelper):
         self.check_page()
 
     def check_page(self):
-        self.find_element(VKEcosystemPageLocators)
+        self.find_element(VKEcosystemPageLocators.TITLE_LABEL)
