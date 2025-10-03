@@ -8,7 +8,7 @@ class RecoveryPageLocators:
     QR_CODE = (By.XPATH, '//*[@class = "qr_code_image_wrapper"]')
     SUPPORT_BUTTON = (By.XPATH, '//*[@class="ext-registration_f"]')
 
-class RecoveryPageHelperHelper(BasePageHelper):
+class RecoveryPageHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()
