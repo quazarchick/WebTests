@@ -1,6 +1,6 @@
 from core.BaseTest import browser
 from pages.BasePage import BasePageHelper
-from pages.HelpPage import HelpPageHelperHelper, HelpPageLocators
+from pages.HelpPage import HelpPageHelper, HelpPageLocators
 from pages.LoginPage import LoginPageHelper
 from pages.VKecosystem_page import VKEcosystemPageHelper
 from pages.AdvetisementCabinetHelp import AdvetisementCabinetHelpHelper
